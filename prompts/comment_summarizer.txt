@@ -1,0 +1,5 @@
+The following is several comments an author made on other research. Your job is to figure out what questions the author is asking, ideas for experiments, and what the authors seem to be experts in.
+
+Be very specific, the "questions", "experiments", and "expertise" should provide good insight into the author for another researcher who is an expert in their field.
+
+The comments are broadly about AI.
