@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friend Recommendation</title>
+</head>
+<body>
+    <h1>Friend Recommendation System</h1>
+    <form id="recommendationForm">
+        <label for="tag">Select a Tag:</label>
+        <select id="tag" name="tag">
+            <option value="AIXI">AIXI</option>
+            <option value="Coherent Extrapolated Volition">Coherent Extrapolated Volition</option>
+            <option value="Complexity of Value">Complexity of Value</option>
+            <option value="Corrigibility">Corrigibility</option>
+            <option value="Deceptive Alignment">Deceptive Alignment</option>
+            <option value="Decision Theory">Decision Theory</option>
+            <option value="Embedded Agency">Embedded Agency</option>
+            <option value="Fixed Point Theorems">Fixed Point Theorems</option>
+            <option value="Goodhart’s Law">Goodhart’s Law</option>
+            <option value="Goal-Directedness">Goal-Directedness</option>
+            <option value="Gradient Hacking">Gradient Hacking</option>
+            <option value="Infra-Bayesianism">Infra-Bayesianism</option>
+            <option value="Inner Alignment">Inner Alignment</option>
+            <option value="Instrumental Convergence">Instrumental Convergence</option>
+            <option value="Intelligence Explosion">Intelligence Explosion</option>
+            <option value="Logical Induction">Logical Induction</option>
+            <option value="Logical Uncertainty">Logical Uncertainty</option>
+            <option value="Mesa-Optimization">Mesa-Optimization</option>
+            <option value="Multipolar Scenarios">Multipolar Scenarios</option>
+            <option value="Myopia">Myopia</option>
+            <option value="Newcomb’s Problem">Newcomb’s Problem</option>
+            <option value="Optimization">Optimization</option>
+            <option value="Orthogonality Thesis">Orthogonality Thesis</option>
+            <option value="Outer Alignment">Outer Alignment</option>
+            <option value="Paperclip Maximizer">Paperclip Maximizer</option>
+            <option value="Power Seeking (AI)">Power Seeking (AI)</option>
+            <option value="Recursive Self-Improvement">Recursive Self-Improvement</option>
+            <option value="Simulator Theory">Simulator Theory</option>
+            <option value="Sharp Left Turn">Sharp Left Turn</option>
+            <option value="Solomonoff Induction">Solomonoff Induction</option>
+            <option value="Superintelligence">Superintelligence</option>
+            <option value="Symbol Grounding">Symbol Grounding</option>
+            <option value="Transformative AI">Transformative AI</option>
+            <option value="Treacherous Turn">Treacherous Turn</option>
+            <option value="Utility Functions">Utility Functions</option>
+            <option value="Whole Brain Emulation">Whole Brain Emulation</option>
+        </select>
+        <br><br>
+        <label for="user_profile">Enter Your Research Interests:</label>
+        <textarea id="user_profile" name="user_profile" rows="4" cols="50"></textarea>
+        <br><br>
+        <button type="button" onclick="recommendFriends()">Recommend Friends</button>
+    </form>
+    <h2>Recommended Friends:</h2>
+    <div id="results"></div>
+
+    <script>
+        async function recommendFriends() {
+            const tag = document.getElementById('tag').value;
+            const userProfile = document.getElementById('user_profile').value;
+
+            const response = await fetch('http://127.0.0.1:8000/recommend_friends', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ tag: tag, user_profile: userProfile })
+            });
+
+            const data = await response.json();
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '';
+
+            if (data.recommended_friends) {
+                data.recommended_friends.forEach(friend => {
+                    const friendDiv = document.createElement('div');
+                    friendDiv.textContent = friend;
+                    resultsDiv.appendChild(friendDiv);
+                });
+            } else {
+                resultsDiv.textContent = 'No friends found.';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+You're given a list of usernames for users on a forum, some posts they have written and some details about the posts and also some details about the comments they have made on the post.
+
+Your job is to look at the following profile, and find potential research collaborators for the user based on the research questions the user has.
+
+USER PROFILE:
+----------------
+{{user_profile}}
+----------------
+
+Here are the users on the forum and some details about their posts and comments:
+
+FORUM USERS:
+----------------
+{{forum_users}}
+----------------
+
+Give the 3 most relevant forum users to the user profile based and explain your reasoning.
+
+Remember, all users on the forum and the user profile are expert researchers in the same field so the overlaps should be as specifc as possible, the more specific the questions they are both interested in the higher weight you should put on this. For example the fact that there is overlap in interest in the field of AI should have very little weight while the fact that they have overlap in a very niche question should have high weight.
+
+When giving your reasoning refer to specifc posts or their comments more broadly.
+Only reccomend collaborators based on the information given, and keep answers concise and only related to user profile.

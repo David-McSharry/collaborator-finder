@@ -73,3 +73,46 @@ async def process_and_summarize_comments(username: str) -> dict[str, str]:
         return {url: comment_summary}
     else:
         return comments  # Return the error message if extraction failed
+
+
+
+
+
+
+
+
+
+
+
+async def extract_profile_comments(username: str):
+    url = f"https://www.greaterwrong.com/users/{username}?show=comments"
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(url) as response:
+                content = await response.text()
+        
+        soup = BeautifulSoup(content, 'html.parser')
+        comment_elements = soup.find_all('li', class_='comment-item')
+        
+        comments = []
+        for comment in comment_elements:
+            text = comment.find('div', class_='comment-body').get_text().strip()
+            post_title = comment.find('span', class_='comment-post-title2').find('a').get_text().strip()
+            
+            comments.append({
+                'text': text,
+                'post_title': post_title,
+            })
+        
+        return comments
+    
+    except aiohttp.ClientError as e:
+        raise Exception(f"Failed to fetch the webpage: {str(e)}")
+    except Exception as e:
+        raise Exception(f"An error occurred while extracting comments: {str(e)}")
+    
+# results = asyncio.run(extract_profile_comments("jozdien"))
+
+# print(results[:5])
+
+    
