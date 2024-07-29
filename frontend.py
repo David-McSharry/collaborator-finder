@@ -4,16 +4,16 @@ import json
 
 # List of tags
 tags = [
-    "AIXI", "Coherent Extrapolated Volition", "Complexity of Value", "Corrigibility",
-    "deceptive-alignment", "Decision Theory", "Embedded Agency", "Fixed Point Theorems",
-    "Goodhart's Law", "Goal-Directedness", "Gradient Hacking", "Infra-Bayesianism",
-    "Inner Alignment", "Instrumental Convergence", "Intelligence Explosion",
-    "Logical Induction", "Logical Uncertainty", "Mesa-Optimization", "Multipolar Scenarios",
-    "Myopia", "Newcomb's Problem", "Optimization", "Orthogonality Thesis", "Outer Alignment",
-    "Paperclip Maximizer", "Power Seeking (AI)", "Recursive Self-Improvement",
-    "simulator-theory", "Sharp Left Turn", "Solomonoff Induction", "Superintelligence",
-    "Symbol Grounding", "Transformative AI", "Treacherous Turn", "Utility Functions",
-    "Whole Brain Emulation"
+    "aixi", "coherent-extrapolated-volition", "complexity-of-value", "corrigibility",
+    "deceptive-alignment", "decision-theory", "embedded-agency", "fixed-point-theorems",
+    "goodhart's-law", "goal-directedness", "gradient-hacking", "infra-bayesianism",
+    "inner-alignment", "instrumental-convergence", "intelligence-explosion",
+    "logical-induction", "logical-uncertainty", "mesa-optimization", "multipolar-scenarios",
+    "myopia", "newcomb's-problem", "optimization", "orthogonality-thesis", "outer-alignment",
+    "paperclip-maximizer", "power-seeking-(ai)", "recursive-self-improvement",
+    "simulator-theory", "sharp-left-turn", "solomonoff-induction", "superintelligence",
+    "symbol-grounding", "transformative-ai", "treacherous-turn", "utility-functions",
+    "whole-brain-emulation"
 ]
 
 st.title("AI Safety collaborator finder")
